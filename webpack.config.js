@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   entry: './src/js/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist/js'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   module: {
@@ -40,6 +40,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index2.html',
+      template: 'src/index2.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'bundle.css',
