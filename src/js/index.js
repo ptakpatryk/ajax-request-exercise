@@ -2,10 +2,10 @@ import '../style/style.scss';
 
 const fetchBtn = document.querySelector('.fetch');
 const xmlBtn = document.querySelector('.xml');
+const errorModal = document.querySelector('.error');
 
 const fillContent = (state) => {
   const contentList = document.querySelector('.contentList');
-  console.log(contentList);
 
   const content = state.map(
     (el) =>
@@ -26,15 +26,18 @@ const fillContent = (state) => {
   contentList.innerHTML = content.join('');
 };
 
+const errorModalToggle = () => {
+  errorModal.classList.toggle('error--visible');
+};
+
 const fetchAPI = () => {
   fetch(`https://reqres.in/api/users?page=1`)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response.data);
       fillContent(response.data);
     })
     .catch((error) => {
-      console.log(error);
+      errorModalToggle();
     });
 };
 
@@ -51,3 +54,4 @@ const fetchXML = () => {
 
 fetchBtn && fetchBtn.addEventListener('click', fetchAPI);
 xmlBtn && xmlBtn.addEventListener('click', fetchXML);
+errorModal.addEventListener('click', errorModalToggle);

@@ -68,12 +68,16 @@ body {
   font-size: 2rem;
 }
 
+// Horizontal line
+
 .line {
   width: 80%;
   max-width: 300px;
   margin: 15px 0 20px;
   border-top: 1px solid #d9d9d9;
 }
+
+// Button style
 
 .btn {
   padding: 10px 30px;
@@ -106,9 +110,6 @@ body {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  // display: grid;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-gap: 30px;
 }
 
 .card {
@@ -149,6 +150,45 @@ body {
       font-size: 1.2rem;
       opacity: 0.6;
     }
+  }
+}
+
+// Error modal
+
+.error {
+  visibility: hidden;
+
+  &--visible {
+    visibility: visible;
+  }
+
+  .message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 80%;
+    max-width: 400px;
+    z-index: 99;
+    border-radius: 15px;
+    box-shadow: 10px 10px 30px -10px rgba(0, 0, 0, 0.2);
+
+    p {
+      color: $color-primary;
+      text-align: center;
+      padding: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 
